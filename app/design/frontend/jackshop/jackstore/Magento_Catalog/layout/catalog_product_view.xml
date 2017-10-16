@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="mage/gallery/gallery.css"/>
+    </head>
+    <update handle="catalog_product_opengraph" />
+    <update handle="page_calendar"/>
+    <body>
+
+        <move element="product.info.overview" destination="product.info.main" after="product.info.price" />
+        <move element="product.info.addto" destination="product.info.addtocart" />
+        <referenceBlock name="view.addto.compare" remove="true"/>
+        <referenceBlock name="product.info.mailto" remove="true"/>
+
+        <referenceBlock name="product.info.details">
+                <block class="Magento\Catalog\Block\Product\View\Attributes" name="product.attributes" as="additional" template="product/view/attributes.phtml" group="detailed_info">
+                    <arguments>
+                        <argument translate="true" name="title" xsi:type="string">shipping &amp; delivery</argument>
+                    </arguments>
+                </block>
+        </referenceBlock>
+    </body>
+</page>

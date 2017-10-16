@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <body>
+
+    	<move element="top.links" destination="header-wrapper"/>
+    	<move element="form.subscribe" destination="footerCol7Top"/>
+    	<move element="copyright" destination="footer-container"/>
+		<referenceBlock name="currency" remove="true"/>
+		<referenceBlock name="footer_links" remove="true" />
+		<referenceBlock name="wish-list-link" remove="true" />
+
+		<referenceContainer name="header.panel">
+			<container name="header.row" htmlTag="div" htmlClass="row">
+				<container name="top.left" htmlTag="div" htmlClass="col-md-3 col-sm-3 top-left">
+					<block class="Magento\Cms\Block\Block" name="socialLink">
+					    <arguments>
+					        <argument name="block_id" xsi:type="string">social-link</argument>
+					    </arguments>
+					</block>
+				</container>
+
+				<container name="top.middle" htmlTag="div" htmlClass="col-md-6 col-sm-6 col-xs-12 top-middle">
+					<block class="Magento\Cms\Block\Block" name="freeDelivery">
+					    <arguments>
+					        <argument name="block_id" xsi:type="string">free-delivery</argument>
+					    </arguments>
+					</block>
+				</container>
+
+				<container name="top.right" htmlTag="div" htmlClass="col-md-3 col-sm-3 top-right">
+					<block class="Magento\Cms\Block\Block" name="rightMenu">
+					    <arguments>
+					        <argument name="block_id" xsi:type="string">right-menu</argument>
+					    </arguments>
+					</block>      	
+				</container>
+			</container>
+		</referenceContainer>
+		<referenceBlock name="top.links">
+			<block class="Magento\Framework\View\Element\Html\Link" name="location.link" after="register-link">
+		        <arguments>
+		            <argument name="label" xsi:type="string" translate="false">Location</argument>
+		            <argument name="path" xsi:type="string" translate="false">Location</argument>
+		        </arguments>
+    		</block>
+			<block class="Magento\Framework\View\Element\Html\Link" name="account.link" after="location.link">
+		        <arguments>
+		            <argument name="label" xsi:type="string" translate="false">Account</argument>
+		            <argument name="path" xsi:type="string" translate="false">Account</argument>
+		        </arguments>
+    		</block>
+		</referenceBlock>
+
+        <referenceContainer name="footer-container">
+			<container name="testDiv" htmlTag="div" htmlClass="test-div">
+	        	<container name="footerTop" htmlTag="div" htmlClass="footer-top">
+	        		<container name="footerRowTop" htmlTag="div" htmlClass="row">
+	        			<container name="footerCol7Top" htmlTag="div" htmlClass="col-md-8 col-sm-8 col-xs-12">
+	        				
+	        			</container>
+	        			<container name="footerCol5Top" htmlTag="div" htmlClass="col-md-4 col-sm-4 col-xs-12 text-right">
+							<block class="Magento\Cms\Block\Block" name="footerSocialLink">
+							    <arguments>
+							        <argument name="block_id" xsi:type="string">footer-social-link</argument>
+							    </arguments>
+							</block>
+	        			</container>
+	        		</container>
+	        	</container>
+        	</container>
+        	<container name="footerBot" htmlTag="div" htmlClass="footer-bot">
+				<block class="Magento\Cms\Block\Block" name="footerLinks">
+				    <arguments>
+				        <argument name="block_id" xsi:type="string">footer_links_block</argument>
+				    </arguments>
+				</block>
+        	</container>
+        </referenceContainer>
+    </body>
+</page>

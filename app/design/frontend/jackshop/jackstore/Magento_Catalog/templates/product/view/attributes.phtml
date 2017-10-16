@@ -1,0 +1,33 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Product additional attributes template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\Attributes
+ */
+?>
+<?php
+    $_helper = $this->helper('Magento\Catalog\Helper\Output');
+    $_product = $block->getProduct()
+?>
+<?php if ($_additional = $block->getAdditionalData()): ?>
+    <div class="additional-attributes-wrapper table-wrapper">
+        <table class="data table additional-attributes" id="product-attribute-specs-table">
+            <caption class="table-caption"><?php /* @escapeNotVerified */ echo __('Shipping & Delivery') ?></caption>
+            <tbody>
+            <?php foreach ($_additional as $_data): ?>
+                <tr>
+                    <th class="col label" scope="row"><?php echo $block->escapeHtml(__($_data['label'])) ?></th>
+                    <td class="col data" data-th="<?php echo $block->escapeHtml(__($_data['label'])) ?>"><?php /* @escapeNotVerified */ echo __('<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer hendrerit feugiat ipsum, sollicitudin blandit mi rutrum non. Aliquam cursus nec ante sit amet vulputate. Sed pellentesque tempor arcu ut facilisis. Sed ultrices mollis suscipit. Aenean vel odio sed diam auctor scelerisque. Sed blandit finibus nisl vitae pellentesque. In in massa eget nisi ornare auctor vel sed mauris. Quisque iaculis viverra sapien, id varius mauris facilisis vel. Mauris dignissim, neque at blandit elementum, turpis lacus ornare lectus, vel mattis tortor arcu id lectus.</p>') ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+<?php endif;?>

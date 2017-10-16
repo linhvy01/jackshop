@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="JackStore_Blog::blog_content" title="JackStore Blog" module="JackStore_Blog" sortOrder="50" parent="Magento_Backend::content" resource="JackStore_Blog::blog_content" />
+        <add id="JackStore_Blog::post" title="Posts" module="JackStore_Blog" sortOrder="0" parent="JackStore_Blog::blog_content" action="blog/post" resource="JackStore_Blog::post"/>
+        <add id="JackStore_Blog::category" title="Category" module="JackStore_Blog" sortOrder="1" parent="JackStore_Blog::blog_content" action="blog/category" resource="JackStore_Blog::category" />
+    </menu>
+</config>

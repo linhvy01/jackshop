@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="checkout_cart_item_renderers"/>
+    <body>
+        <referenceBlock name="specificProduct" remove="true" />
+        <referenceContainer name="content">
+            <block class="Magento\Cms\Block\Block" name="specificProduct">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">specific-product</argument>
+                </arguments>
+            </block>
+            <referenceBlock class="Magento\Checkout\Block\Cart\Crosssell" name="checkout.cart.crosssell" template="Magento_Catalog::product/list/crosssellitems.phtml">
+            </referenceBlock>
+        </referenceContainer>
+    </body>
+</page>
